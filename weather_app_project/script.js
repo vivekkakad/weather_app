@@ -1,7 +1,7 @@
-// API Key
+
 const API_KEY = "168771779c71f3d64106d8a88376808a";
 
-// Tab Switching 
+
 const userTab = document.querySelector("[data-userWeather]");
 const searchTab = document.querySelector("[data-searchWeather]");
 const searchForm = document.querySelector("[data-searchForm]");
@@ -58,9 +58,9 @@ searchTab.addEventListener('click', () => {
 
 function getFromSessionStorage() {
     const localCoordinates = sessionStorage.getItem("userCoordinates");
-    // console.log(localCoordinates);
+    
 
-    // Local Coordinates Not present - Grant Access Container
+    // Local Coordinates Not present
     if (!localCoordinates) {
         grantAccessContainer.classList.add('active');
     }
@@ -78,7 +78,7 @@ async function fetchWeatherInfo(coordinates) {
     // loading 
     loadingContainer.classList.add('active');
 
-    // try - catch Block
+    
     try {
         const response = await fetch(`https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${API_KEY}&units=metric`);
 
@@ -152,7 +152,7 @@ searchForm.addEventListener('submit', (e) => {
     if (searchInput.value === "") {
         return;
     }
-    // console.log(searchInput.value);
+  
     fetchSearchWeatherInfo(searchInput.value);
     searchInput.value = "";
 });
